@@ -40,9 +40,8 @@ header::before {
 
 /* Logo styling - aumentato il glow per risaltare sullo sfondo stellato */
 .header-logo {
-    max-width: 200px;
-    margin-bottom: 30px;
-    filter: drop-shadow(0 0 20px rgba(255, 107, 74, 0.6));
+    max-width: 500px;
+    filter: drop-shadow(0 0 15px rgba(255, 107, 74, 0.421));
 }
 
 /* Header Typography */
@@ -94,7 +93,7 @@ header::before {
     }
 
     .header-logo {
-        max-width: 150px;
+        max-width: 270px;
     }
 }
 
@@ -104,7 +103,7 @@ header::before {
     }
 
     .header-content h3 {
-        font-size: 1.2em;
+        font-size: 1.0em;
     }
 
     .header-content .cta-button {
