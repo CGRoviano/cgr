@@ -7,13 +7,10 @@ header {
     justify-content: center;
     text-align: center;
     padding: 0 20px;
-    background-image: url('../../assets/images/header-background-placeholder.svg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    overflow: hidden;
 }
 
-/* Overlay gradient - leggermente modificato per integrarsi meglio con l'SVG */
+/* Parallax background image as pseudo-element for smooth transform */
 header::before {
     content: '';
     position: absolute;
@@ -21,11 +18,29 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 0;
+    background-image: url('../../assets/images/header-background-placeholder.svg');
+    background-size: cover;
+    background-position: center 0;
+    transition: transform 0.2s cubic-bezier(.4,.2,.2,1);
+    will-change: transform;
+}
+
+/* Overlay gradient - leggermente modificato per integrarsi meglio con l'SVG */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
     background: linear-gradient(
         to bottom, 
-        rgba(0,0,0,0.2) 0%,  /* Ridotto l'overlay per far risaltare le stelle */
+        rgba(0,0,0,0.2) 0%,
         rgba(0,0,0,0.5) 100%
     );
+    pointer-events: none;
 }
 
 /* Header Content Container */
@@ -36,27 +51,34 @@ header::before {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s ease forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 }
 
-/* Logo styling - aumentato il glow per risaltare sullo sfondo stellato */
+/* Logo styling */
 .header-logo {
     max-width: 500px;
     filter: drop-shadow(0 0 15px rgba(255, 107, 74, 0.421));
+    margin-bottom: 20px;
 }
 
 /* Header Typography */
 .header-content h1 {
     font-size: 4em;
-    margin-bottom: 20px;
+    margin: 0 0 16px;
     color: var(--text-light);
     text-shadow: 0 0 15px var(--primary-glow);
     animation: glow 3s ease-in-out infinite;
+    line-height: 1.2;
 }
 
 .header-content h3 {
     font-size: 2em;
     color: var(--text-light);
-    margin-bottom: 40px;
+    margin: 0 0 24px;
+    line-height: 1.4;
 }
 
 /* CTA Button */
@@ -71,6 +93,7 @@ header::before {
     font-size: 1.2em;
     transition: var(--transition-fast);
     box-shadow: 0 0 20px rgba(255, 107, 74, 0.3);
+    min-width: 240px;
 }
 
 .header-content .cta-button:hover {
@@ -82,32 +105,59 @@ header::before {
 @media (max-width: 768px) {
     header {
         background-attachment: scroll;
+        min-height: 480px;
+        height: 75vh;
+        padding: 60px 16px;
     }
-
+    .header-content {
+        padding: 0 12px;
+        gap: 20px;
+    }
     .header-content h1 {
         font-size: 2.5em;
+        margin-bottom: 8px;
     }
-
     .header-content h3 {
-        font-size: 1.5em;
+        font-size: 1.4em;
+        margin-bottom: 16px;
+        padding: 0 8px;
     }
-
     .header-logo {
-        max-width: 270px;
+        max-width: 220px;
+        margin-bottom: 16px;
+    }
+    .header-content .cta-button {
+        font-size: 1.2em;
+        padding: 16px 32px;
+        margin-bottom: 16px;
     }
 }
 
 @media (max-width: 480px) {
+    header {
+        min-height: 400px;
+        height: 70vh;
+        padding: 40px 12px;
+    }
+    .header-content {
+        gap: 16px;
+    }
     .header-content h1 {
         font-size: 2em;
+        margin-bottom: 6px;
     }
-
     .header-content h3 {
-        font-size: 1.0em;
+        font-size: 1.2em;
+        margin-bottom: 12px;
     }
-
+    .header-logo {
+        max-width: 180px;
+        margin-bottom: 12px;
+    }
     .header-content .cta-button {
-        padding: 12px 24px;
-        font-size: 1em;
+        font-size: 1.1em;
+        padding: 14px 28px;
+        margin-bottom: 12px;
+        min-width: 200px;
     }
 }

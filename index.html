@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/utils/animations.css">
     <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/logo-strip.css">
     <link rel="stylesheet" href="css/sections/common.css">
     <link rel="stylesheet" href="css/sections/about.css">
     <link rel="stylesheet" href="css/sections/timeline.css">
@@ -33,9 +34,15 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="nav-logo-link">
-            <img src="https://raw.githubusercontent.com/CGRoviano/cgr/main/assets/logo/logo.png" alt="CGR Logo" class="nav-logo">
-        </a>
+        <div class="nav-left">
+            <a href="#" class="nav-logo-link">
+                <img src="assets/logo/logo.png" alt="CGR Logo" class="nav-logo cgr-logo">
+            </a>
+            <div class="nav-powered-by">
+                <span class="powered-by-text">powered by</span>
+                <img src="assets/logo/rovi.png" alt="ROVI" class="nav-logo rovi-logo">
+            </div>
+        </div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#timeline">Timeline</a>
@@ -54,6 +61,21 @@
             <a href="#project" class="cta-button">Scopri il Progetto</a>
         </div>
     </header>
+
+    <!-- Logo Strip Section -->
+    <div class="logo-strip-container">
+        <div class="logo-strip-title">Sponsored by</div>
+        <div id="logo-strip" class="logo-strip">
+            <img src="assets/logo-strip/black side.png" alt="Black Side" />
+            <img src="assets/logo-strip/damiano viti.png" alt="Damiano Viti" />
+            <img src="assets/logo-strip/jungle.png" alt="Jungle" />
+            <img src="assets/logo-strip/lu pa.png" alt="Lu Pa" />
+            <img src="assets/logo-strip/my passion.png" alt="My Passion" />
+            <img src="assets/logo-strip/nuova sair.png" alt="Nuova Sair" />
+            <img src="assets/logo-strip/sogema.png" alt="Sogema" />
+            <img src="assets/logo-strip/tcd.png" alt="TCD" />
+        </div>
+    </div>
 
     <main>
         <section id="about" class="section-about">
@@ -84,6 +106,7 @@
     <!-- JavaScript -->
     <script src="js/modules/navbar.js"></script>
     <script src="js/modules/header-parallax.js"></script>
+    <script src="js/modules/logo-strip.js"></script>
     <script src="js/modules/timeline.js"></script>
     <script src="js/modules/timeline-loader.js"></script>
     <script src="js/modules/project.js"></script>

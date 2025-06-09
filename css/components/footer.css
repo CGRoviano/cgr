@@ -7,9 +7,9 @@
 
 .footer-content {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    padding: 2rem 0;
 }
 
 .footer-logo img {
@@ -21,45 +21,87 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .footer-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease;
+    color: var(--text-light);
+    transition: opacity 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #FF6B00;
+    opacity: 0.8;
+}
+
+.footer-link h3 {
+    margin: 0;
+    font-size: 1.2em;
 }
 
 .footer-icon {
     font-size: 1.2rem;
 }
 
+.funding-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-light);
+    opacity: 0.9;
+    font-size: 0.95em;
+}
+
+.funding-info img.regione-logo {
+    height: 54px;
+    width: auto;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+    .footer-links {
+        gap: 1.5rem;
+    }
+
+    .footer-link h3 {
+        font-size: 1.1em;
+    }
+
+    .funding-info {
+        font-size: 0.9em;
+        gap: 8px;
+    }
+
+    .funding-info img.regione-logo {
+        height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
     .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+        padding: 1.5rem 0;
     }
 
     .footer-links {
         flex-direction: column;
         gap: 1rem;
+        text-align: center;
     }
-}
 
-@media (max-width: 480px) {
-    .footer-link span {
-        font-size: 0.9rem;
+    .footer-link {
+        justify-content: center;
     }
-    
-    .footer-logo img {
-        height: 30px;
+
+    .funding-info {
+        margin-top: 1rem;
+        font-size: 0.85em;
+    }
+
+    .funding-info img.regione-logo {
+        height: 45px;
     }
 }
