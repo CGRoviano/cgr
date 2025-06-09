@@ -1,0 +1,241 @@
+/* Base styles */
+.section-project {
+    background: url('https://raw.githubusercontent.com/lucarosati28/cgr/main/assets/common/festival-about2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+/* Overlay per il testo */
+.section-project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(33, 150, 243, 0.1) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Project Header */
+.project-header {
+    margin-bottom: 4rem;
+}
+
+.project-header h2 {
+    color: #FF6B00;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.project-header p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    padding-left: 20%;
+    padding-right: 20%;
+    max-width: 100%;
+}
+
+/* Cards Grid */
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Individual Cards */
+.card {
+    position: relative;
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    min-height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    backdrop-filter: blur(0px);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Card Background e Overlay */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    z-index: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.8)
+    );
+    z-index: 1;
+}
+
+/* Card specifici backgrounds */
+.card-location::before {
+    background-image: url('https://raw.githubusercontent.com/lucarosati28/cgr/main/assets/common/panorama2.png');
+}
+
+.card-app::before {
+    background-image: url('https://raw.githubusercontent.com/lucarosati28/cgr/main/assets/common/giovani.png');
+}
+
+.card-experience::before {
+    background-image: url('https://raw.githubusercontent.com/lucarosati28/cgr/main/assets/common/mostra.png');
+}
+
+.card:hover::before {
+    opacity: 0.9;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Content */
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.card-icon {
+    color: #FF6B00;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.card h3 {
+    color:rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);;
+}
+
+.card p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Objectives Section */
+.objectives-section {
+    margin-top: 1rem;
+    padding: 2rem 0;
+}
+
+.objectives-section h2 {
+    padding: 0rem;
+    color: #FF6B00;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(245, 244, 244, 0.4);
+}
+
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.objective {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+    border-left: 3px solid rgba(255, 107, 0, 0.3);
+}
+
+.objective:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0px 0px 20px rgba(237, 235, 235, 0.3);
+}
+
+.objective .number {
+    color: #FF6B00;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.objective p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .project-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .objectives-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-header h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        min-height: 250px;
+    }
+    
+    .objectives-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .objective {
+        padding: 1.2rem;
+    }
+}

@@ -1,0 +1,116 @@
+/* Common Section Styles */
+section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+section h2 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-light);
+    text-shadow: 0 0 15px var(--primary-glow);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* About Section */
+.section-about {
+    background: linear-gradient(
+        to bottom,
+        var(--background-dark) 0%,
+        rgba(33, 150, 243, 0.1) 100%
+    );
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-text {
+    padding: var(--spacing-lg);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-light);
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about-image {
+    position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-medium);
+    transform: scale(1.02);
+}
+
+.about-image:hover .feature-image {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    section h2 {
+        font-size: 2.5em;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .about-text {
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
+
+    .about-image {
+        min-height: 250px;
+    }
+}

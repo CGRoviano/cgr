@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 25 CGR Tribute - 25 Anni di Musica e comunità!</title>
+    
+    <script>
+        (function() {
+            const isGitHub = window.location.hostname.includes('github.io');
+            const baseUrl = isGitHub ? '/cgr/' : './';
+            document.write('<base href="' + baseUrl + '">');
+        })();
+    </script>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/utils/variables.css">
+    <link rel="stylesheet" href="css/utils/animations.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/sections/common.css">
+    <link rel="stylesheet" href="css/sections/about.css">
+    <link rel="stylesheet" href="css/sections/timeline.css">
+    <link rel="stylesheet" href="css/sections/project.css">
+    <link rel="stylesheet" href="css/sections/lineup.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/utils/responsive.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo-link">
+            <img src="https://raw.githubusercontent.com/CGRoviano/cgr/main/assets/logo/logo.png" alt="CGR Logo" class="nav-logo">
+        </a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#project">Il Progetto</a>
+            <a href="#lineup">Line Up</a>
+        </div>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <img src="assets/common/26.png" alt="Logo CGR" class="header-logo">
+            <h1>25 CGR Tribute</h1>
+            <h3>25 Anni di Musica e Comunità</h3>
+            <a href="#project" class="cta-button">Scopri il Progetto</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section-about">
+            <div class="container">
+                <h2>About</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>L'Associazione Comunità Giovanile di Roviano è da 25 anni il cuore pulsante della vita sociale e culturale del nostro paese. Attraverso eventi che spaziano dalla musica alla gastronomia, promuoviamo l'aggregazione giovanile e manteniamo vive le tradizioni del nostro territorio.</p>
+                        <p>Quest'anno celebriamo un traguardo importante: il 25° anniversario della nostra fondazione. Per rendere questo momento indimenticabile, abbiamo ideato un evento unico che unisce la musica e la passione per il canto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section - Caricato dinamicamente -->
+        <div id="timeline-container"></div>
+
+        <!-- Project Section - Caricato dinamicamente -->
+        <div id="project-container"></div>
+
+        <!-- Lineup Section - Caricato dinamicamente -->
+        <div id="lineup-container"></div>
+
+        <!-- Footer - Caricato dinamicamente -->
+        <div id="footer-container"></div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/modules/navbar.js"></script>
+    <script src="js/modules/header-parallax.js"></script>
+    <script src="js/modules/timeline.js"></script>
+    <script src="js/modules/timeline-loader.js"></script>
+    <script src="js/modules/project.js"></script>
+    <script src="js/modules/project-loader.js"></script>
+    <script src="js/modules/lineup.js"></script>
+    <script src="js/modules/lineup-loader.js"></script>
+    <script src="js/modules/footer.js"></script>
+    <script src="js/modules/footer-loader.js"></script>
+    <script src="js/modules/scroll.js"></script>
+    <script src="js/modules/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
