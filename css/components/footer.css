@@ -1,8 +1,8 @@
 /* Footer Styles */
 .site-footer {
-    background-color: #1a1a1a;
+    background-color: #000000;
     padding: 1.5rem 0;
-    border-top: 1px solid rgba(255, 107, 0, 0.1);
+    border-top: 1px solid rgba(255, 106, 0, 0.829);
 }
 
 .footer-content {

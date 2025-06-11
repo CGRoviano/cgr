@@ -1,7 +1,7 @@
 /* About Section Styles */
 .section-about {
     position: relative;
-    background-image: url('https://raw.githubusercontent.com/lucarosati28/cgr/main/assets/about/festival-about.png');
+    background: url('https://raw.githubusercontent.com/lucarosati28/cgr/main/assets/about/festival-about.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,6 +23,7 @@
         rgba(33, 150, 243, 0.1) 50%,
         rgba(0, 0, 0, 0.8) 100%
     );
+    z-index: 1;
 }
 
 .section-about .container {
@@ -79,7 +80,7 @@
 
 @media (max-width: 768px) {
     .section-about {
-        background-attachment: scroll; /* Migliore performance su mobile */
+        background-position: center center;
     }
 
     .about-text {
@@ -88,5 +89,15 @@
 
     .about-text p {
         font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text {
+        padding: var(--spacing-sm);
+    }
+
+    .about-text p {
+        font-size: 1em;
     }
 }
