@@ -61,7 +61,35 @@
     width: auto;
 }
 
-/* Responsive */
+.footer-powered-by {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 2rem;
+}
+
+.footer-powered-by .powered-by-text {
+    color: var(--text-light);
+    font-size: 1em;
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.footer-powered-by .footer-rovi-logo {
+    height: 32px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.footer-links-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
     .footer-links {
         gap: 1.5rem;
@@ -103,5 +131,25 @@
 
     .funding-info img.regione-logo {
         height: 45px;
+    }
+}
+
+@media (max-width: 700px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 0;
+    }
+
+    .footer-powered-by {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        justify-content: center;
+    }
+
+    .footer-links-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1.2rem;
     }
 }
