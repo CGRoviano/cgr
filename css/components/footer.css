@@ -7,9 +7,11 @@
 
 .footer-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    padding: 2rem 0;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 1.5rem 0 0.5rem 0;
 }
 
 .footer-logo img {
@@ -53,7 +55,7 @@
     gap: 12px;
     color: var(--text-light);
     opacity: 0.9;
-    font-size: 0.95em;
+    font-size: 0.98em;
 }
 
 .funding-info img.regione-logo {
@@ -65,7 +67,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: 2rem;
+    margin-left: 0;
 }
 
 .footer-powered-by .powered-by-text {
@@ -86,70 +88,211 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin-top: 1.2rem;
+    margin: 1.2rem 0 0.5rem 0;
     flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-    .footer-links {
-        gap: 1.5rem;
-    }
-
-    .footer-link h3 {
-        font-size: 1.1em;
-    }
-
-    .funding-info {
-        font-size: 0.9em;
-        gap: 8px;
-    }
-
-    .funding-info img.regione-logo {
-        height: 32px;
-    }
+.footer-association {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.98em;
+    margin: 0.8rem 0 0.5rem 0;
+    line-height: 1.5;
 }
 
-@media (max-width: 480px) {
-    .footer-content {
-        padding: 1.5rem 0;
-    }
+.footer-association a {
+    color: #FF6B00;
+    text-decoration: underline;
+    word-break: break-all;
+}
 
-    .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
+.footer-legal {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.95em;
+    color: var(--text-light);
+    opacity: 0.85;
+}
 
+.footer-legal-link {
+    color: #FF6B00;
+    text-decoration: underline;
+    margin: 0 0.2em;
+}
+
+.footer-legal-link:hover {
+    text-decoration: underline wavy;
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 0.2rem 0 0.1rem 0 !important;
+        border-top-width: 1px !important;
+    }
+    .footer-content,
+    .footer-grid {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: none !important;
+    }
+    .footer-col {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: none !important;
+    }
     .footer-link {
-        justify-content: center;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.2em !important;
+        font-size: 1em !important;
+        margin: 0.1em 0 !important;
+        line-height: 1.2 !important;
     }
-
-    .funding-info {
-        margin-top: 1rem;
-        font-size: 0.85em;
+    .footer-link h3, .footer-link span {
+        font-size: 1em !important;
     }
-
+        .funding-info, .footer-powered-by {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.2em !important;
+            font-size: 0.95em !important;
+            margin: 0.1em 0 0 0 !important;
+            line-height: 1.2 !important;
+            text-align: center !important;
+        }
+    .footer-logo img,
+    .footer-powered-by .footer-rovi-logo,
     .funding-info img.regione-logo {
-        height: 45px;
+        height: 24px !important;
+        max-width: 60px !important;
     }
+    .footer-association {
+        font-size: 0.95em !important;
+        margin: 0.1em 0 0.1em 0 !important;
+        line-height: 1.2 !important;
+    }
+    .footer-legal {
+        font-size: 0.9em !important;
+        margin-top: 0.2em !important;
+        line-height: 1.2 !important;
+    }
+    .footer-legal-link {
+        font-size: 1em !important;
+    }
+    /* Debug: bordo rosso per vedere i blocchi */
+    /* .footer-col { border: 1px solid red !important; } */
 }
-
-@media (max-width: 700px) {
+@media (min-width: 601px) and (max-width: 900px) {
     .footer-content {
         flex-direction: column;
+        align-items: center;
         gap: 1.2rem;
-        padding: 1.2rem 0;
+        padding: 1.2rem 0 0.5rem 0;
     }
-
-    .footer-powered-by {
-        margin-left: 0;
-        margin-top: 0.5rem;
-        justify-content: center;
-    }
-
     .footer-links-bottom {
         flex-direction: column;
+        gap: 0.7rem;
+        margin: 1.2rem 0 0.5rem 0;
+    }
+    .footer-association {
+        font-size: 0.93em;
+        margin: 0.7rem 0 0.4rem 0;
+    }
+    .footer-legal {
+        font-size: 0.9em;
+        margin-top: 0.4rem;
+    }
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
-        margin-top: 1.2rem;
+        margin-bottom: 0.2rem;
+    }
+    .footer-col {
+        align-items: center;
+        text-align: center;
+        min-width: unset;
+        gap: 0.3rem;
+        margin-bottom: 0.2rem;
+    }
+    .footer-col.footer-credits,
+    .footer-col.footer-identity,
+    .footer-col.footer-links {
+        align-items: center;
+        gap: 0.3rem;
+    }
+    .footer-link {
+        gap: 0.3rem;
+        font-size: 0.98em;
+    }
+    .funding-info {
+        gap: 6px;
+        font-size: 0.93em;
+    }
+    .footer-powered-by {
+        gap: 4px;
+        font-size: 0.93em;
+    }
+}
+
+/* Footer Grid Layout */
+.footer-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.7rem;
+}
+
+.footer-col {
+    flex: 1 1 220px;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
+
+.footer-col.footer-links {
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.footer-col.footer-credits {
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.footer-col.footer-identity {
+    align-items: flex-start;
+    gap: 0.3rem;
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+    }
+    .footer-col {
+        align-items: center;
+        text-align: center;
+        min-width: unset;
+    }
+    .footer-col.footer-credits {
+        align-items: center;
+    }
+    .footer-col.footer-identity {
+        align-items: center;
     }
 }
