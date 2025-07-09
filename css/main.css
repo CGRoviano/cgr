@@ -1,3 +1,16 @@
+/* Uniforma il font del testo dei bottoni audio e album */
+.photo-button .audio-label {
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+/* Audio button icon style */
+.audio-icon {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
 /* Reset e stili base */
 * {
     margin: 0;
