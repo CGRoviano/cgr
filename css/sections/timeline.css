@@ -1,3 +1,58 @@
+/* Timeline con immagine quadrata integrata */
+.timeline-content-img {
+        display: flex;
+        align-items: flex-start;
+    gap: 2.2rem;
+}
+
+/* Immagini timeline più grandi e valorizzate */
+.timeline-img-square {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px 0 rgba(255,107,0,0.18), 0 2px 12px rgba(0,0,0,0.18);
+    flex-shrink: 0;
+    background: #222;
+    transition: transform 0.25s cubic-bezier(.4,1.6,.6,1), box-shadow 0.25s cubic-bezier(.4,1.6,.6,1);
+    border: 3px solid rgba(255,107,0,0.18);
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-img-square:hover, .timeline-item:hover .timeline-img-square {
+    transform: scale(1.13) rotate(-2deg);
+    box-shadow: 0 8px 48px 0 rgba(255,107,0,0.32), 0 4px 24px rgba(0,0,0,0.22);
+    border: 3px solid var(--primary-color);
+    filter: brightness(1.08) saturate(1.15);
+}
+
+
+.timeline-text {
+        flex: 1 1 0%;
+        min-width: 0;
+}
+
+@media (max-width: 700px) {
+    .timeline-content-img {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7rem;
+        text-align: center;
+    }
+    .timeline-img-square {
+        width: 100px;
+        height: 100px;
+        border-radius: 14px;
+    }
+    .timeline-img-square:hover, .timeline-item:hover .timeline-img-square {
+        transform: scale(1.09) rotate(-1deg);
+        box-shadow: 0 6px 32px 0 rgba(255,107,0,0.22), 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .timeline-text {
+        width: 100%;
+    }
+}
 /* Timeline Section Styles */
 :root {
     --primary-color: #FF6B00;
