@@ -201,7 +201,7 @@ const GalleryModule = {
     },
     
     createSlides(images) {
-        console.log(`Gallery Module: Creating ${images.length} slides.`);
+        console.log(`Gallery Module: Creating ${images.length} optimized slides.`);
         const slidesContainer = document.getElementById('gallery-slides');
         slidesContainer.innerHTML = '';
         
@@ -209,10 +209,16 @@ const GalleryModule = {
             const slide = document.createElement('div');
             slide.className = 'swiper-slide';
             
-            // MODIFICATO: Usa l'URL diretto di Cloudinary, senza proxy!
+            // Chiediamo a Cloudinary una versione ottimizzata dell'immagine:
+            // w_1280 = larga al massimo 1280px
+            // h_1280 = alta al massimo 1280px
+            // c_limit = ridimensiona solo se è più grande, non ingrandisce le immagini piccole
+            // q_auto = qualità automatica per il miglior compromesso peso/qualità
+            const optimizedUrl = imageUrl.replace('/upload/', '/upload/w_1280,h_1280,c_limit,q_auto/');
+            
             slide.innerHTML = `
                 <div class="swiper-zoom-container">
-                    <img src="${imageUrl}" alt="Foto ${i + 1} per l'anno ${this.currentYear}" loading="lazy" />
+                    <img src="${optimizedUrl}" alt="Foto ${i + 1} per l'anno ${this.currentYear}" loading="lazy" />
                 </div>
             `;
             slidesContainer.appendChild(slide);
