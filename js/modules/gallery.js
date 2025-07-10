@@ -108,14 +108,81 @@ const GalleryModule = {
     
     openGallery(year) {
         if (!this.galleries[year] || !this.galleries[year].images.length) return;
+
+        // AUDIO AUTOPLAY LOGIC FOR 2000
+        // Remove any previous gallery audio
+        if (this._galleryAudio) {
+            this._galleryAudio.pause();
+            this._galleryAudio.currentTime = 0;
+            this._galleryAudio.remove();
+            this._galleryAudio = null;
+        }
+
+        if (year === '2000') {
+            // Create and play audio for 2000 gallery
+            const audio = document.createElement('audio');
+            audio.src = 'assets/audio/rinoamanoamano.mp3';
+            audio.loop = true;
+            audio.volume = 0.15;
+            audio.autoplay = true;
+            audio.style.display = 'none';
+            document.body.appendChild(audio);
+            // Try to play (for browsers that block autoplay)
+            audio.play().catch(() => {});
+            this._galleryAudio = audio;
+        }
+
+        if (year === '2001') {
+            // Create and play audio for 2001 gallery
+            const audio = document.createElement('audio');
+            audio.src = 'assets/audio/thebeatleshelp.mp3';
+            audio.loop = true;
+            audio.volume = 0.15;
+            audio.autoplay = true;
+            audio.style.display = 'none';
+            document.body.appendChild(audio);
+            // Try to play (for browsers that block autoplay)
+            audio.play().catch(() => {});
+            this._galleryAudio = audio;
+        }
+
+        if (year === '2002') {
+            // Create and play audio for 2002 gallery
+            const audio = document.createElement('audio');
+            audio.src = 'assets/audio/faberhotelsupramonte.mp3';
+            audio.loop = true;
+            audio.volume = 0.15;
+            audio.autoplay = true;
+            audio.style.display = 'none';
+            document.body.appendChild(audio);
+            // Try to play (for browsers that block autoplay)
+            audio.play().catch(() => {});
+            this._galleryAudio = audio;
+        }
+
+        if (year === '2003') {
+            // Create and play audio for 2003 gallery
+            const audio = document.createElement('audio');
+            audio.src = 'assets/audio/pinkfloyheyyou.mp3';
+            audio.loop = true;
+            audio.volume = 0.15;
+            audio.autoplay = true;
+            audio.style.display = 'none';
+            document.body.appendChild(audio);
+            // Try to play (for browsers that block autoplay)
+            audio.play().catch(() => {});
+            this._galleryAudio = audio;
+        }
+
         
+
         this.currentYear = year;
         const galleryData = this.galleries[year];
-        
+
         const modal = document.getElementById('gallery-modal');
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        
+
         document.getElementById('gallery-title').textContent = `${year} - ${galleryData.title}`;
         document.getElementById('gallery-loading').style.display = 'flex';
         document.getElementById('gallery-swiper').style.display = 'none';
@@ -126,7 +193,7 @@ const GalleryModule = {
             this.createSlides(galleryData.images);
             this.createThumbnails(galleryData.images);
             this.initSwiper();
-            
+
             document.getElementById('gallery-loading').style.display = 'none';
             document.getElementById('gallery-swiper').style.display = 'block';
             document.getElementById('gallery-thumbnails-container').style.display = 'flex';
@@ -226,7 +293,15 @@ const GalleryModule = {
         const modal = document.getElementById('gallery-modal');
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        
+
+        // Stop and remove gallery audio if present
+        if (this._galleryAudio) {
+            this._galleryAudio.pause();
+            this._galleryAudio.currentTime = 0;
+            this._galleryAudio.remove();
+            this._galleryAudio = null;
+        }
+
         if (this.currentSwiper) {
             this.currentSwiper.destroy(true, true);
             this.currentSwiper = null;
