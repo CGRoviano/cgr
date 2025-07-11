@@ -15,7 +15,7 @@ Prima di iniziare, assicurati di avere installato:
 2. Naviga nella directory dove vuoi clonare il repository
 3. Esegui il comando:
    ```bash
-   git clone https://github.com/lucarosati28/cgr.git
+   git clone https://github.com/CGRoviano/cgr.git
    ```
 4. Attendi che il clone sia completato
 
