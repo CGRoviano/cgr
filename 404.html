@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Pagina non trovata | CGR</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="/assets/logo/favicon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+    body.error-page, .center-container, h1, p, .btn, .footer {
+      font-family: 'Space Grotesk', Arial, Helvetica, sans-serif !important;
+    }
+    body.error-page {
+      background: #000;
+      color: var(--text-light);
+      font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .center-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100vw;
+    }
+    .header {
+      text-align: center;
+    }
+    .logo {
+      width: 280px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 15px #FF6B00);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+      font-weight: 700;
+    }
+    .main-content {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .main-content p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: var(--text-light);
+    }
+    .accent {
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .btn {
+      background: #FF6B00;
+      color: #ffffff;
+      padding: 12px 32px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .btn:hover {
+      background:#FFA07A;
+      color: #fff;
+    }
+    .footer {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1rem;
+      letter-spacing: 1px;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body class="error-page">
+  <div class="center-container">
+    <header class="header">
+      <img src="/assets/logo/logo.png" alt="CGR Logo" class="logo" />
+      <h1>Oops! Pagina non trovata</h1>
+    </header>
+    <main class="main-content">
+      <p><span class="accent">La pagina che stai cercando non esiste o è stata spostata.</span></p>
+      <a href="/index.html" class="btn">Torna alla Home</a>
+    </main>
+    <footer class="footer">
+      <p>&copy; CGR - Comunità Giovanile Roviano</p>
+    </footer>
+  </div>
+</body>
+</html>

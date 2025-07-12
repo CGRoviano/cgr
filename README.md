@@ -17,32 +17,9 @@ Repository per la landing page CGR. Segui questi passaggi per iniziare:
 git clone https://github.com/lucarosati28/cgr.git
 ```
 
-<<<<<<< HEAD
 ## Collegamento a un nuovo repository GitHub
 1. Crea un nuovo repository vuoto su GitHub (senza README, .gitignore, licenza)
 2. Rimuovi il remote origin:
-=======
-1. Apri il terminale sul tuo computer
-2. Naviga nella directory dove vuoi clonare il repository
-3. Esegui il comando:
-   ```bash
-   git clone https://github.com/CGRoviano/cgr.git
-   ```
-4. Attendi che il clone sia completato
-
-## Configurazione del tuo nuovo repository
-
-Dopo aver clonato il repository, segui questi passaggi per collegarlo al tuo spazio GitHub:
-
-1. Crea un nuovo repository vuoto su GitHub
-   - Vai su GitHub.com e accedi al tuo account
-   - Clicca sul pulsante "+" in alto a destra e seleziona "New repository"
-   - Dai un nome al repository
-   - NON inizializzare il repository con README, .gitignore o licenza
-   - Clicca "Create repository"
-
-2. Rimuovi il remote origin esistente
->>>>>>> 29cb47474aa5905027a3cfe2086ebd32490cbe09
    ```bash
    git remote remove origin
    ```
