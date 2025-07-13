@@ -31,13 +31,22 @@ const NavbarModule = {
         });
 
         // Gestione trasparenza navbar
-        window.addEventListener('scroll', () => {
+        this._onScroll = this.debounce(() => {
             this.handleScroll();
             this.updateActiveLink();
-        });
+        }, 50);
+        window.addEventListener('scroll', this._onScroll, { passive: true });
 
         // Chiamata iniziale per impostare lo stato corretto
         this.handleScroll();
+    },
+
+    debounce(fn, delay) {
+        let timer = null;
+        return function(...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn.apply(this, args), delay);
+        };
     },
 
     handleScroll() {

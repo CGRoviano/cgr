@@ -1,4 +1,6 @@
 // Infinite horizontal logo strip scroll, seamless, any number of logos
+// Ottimizzazione: calcolo larghezza solo una volta, uso debounce su resize
+
 document.addEventListener('DOMContentLoaded', function () {
     const strip = document.getElementById('logo-strip');
     if (!strip) return;
@@ -15,6 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let animationFrame;
     let lastTime = performance.now();
     const speed = 0.05; // pixels per millisecond
+    let singleSetWidth = 0;
+
+    function calculateWidth() {
+        singleSetWidth = originalLogos.reduce((total, logo) => {
+            return total + logo.offsetWidth + parseInt(getComputedStyle(strip).gap || 0);
+        }, 0);
+    }
 
     function animate(currentTime) {
         const deltaTime = currentTime - lastTime;
@@ -27,19 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
             currentX = matrix.m41;
         }
 
-        // Calculate new position
         let newX = currentX - (speed * deltaTime);
-        
-        // Get the width of one set of logos
-        const singleSetWidth = originalLogos.reduce((total, logo) => {
-            return total + logo.offsetWidth + parseInt(getComputedStyle(strip).gap || 0);
-        }, 0);
-
-        // Reset position when we've scrolled one full set
         if (Math.abs(newX) >= singleSetWidth) {
             newX = 0;
         }
-
         strip.style.transform = `translateX(${newX}px)`;
         animationFrame = requestAnimationFrame(animate);
     }
@@ -54,8 +54,16 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
     ).then(() => {
+        calculateWidth();
         strip.style.visibility = 'visible';
         animationFrame = requestAnimationFrame(animate);
+    });
+
+    // Recalcola larghezza su resize con debounce
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(calculateWidth, 100);
     });
 
     // Pause animation when tab is not visible
