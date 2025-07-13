@@ -174,7 +174,33 @@ const GalleryModule = {
             this._galleryAudio = audio;
         }
 
-        
+        if (year === '2004') {
+            // Create and play audio for 2004 gallery
+            const audio = document.createElement('audio');
+            audio.src = 'assets/audio/bobmarleyjamming.mp3';
+            audio.loop = true;
+            audio.volume = 0.15;
+            audio.autoplay = true;
+            audio.style.display = 'none';
+            document.body.appendChild(audio);
+            // Try to play (for browsers that block autoplay)
+            audio.play().catch(() => {});
+            this._galleryAudio = audio;
+        }
+
+        if (year === '2005') {
+            // Create and play audio for 2005 gallery
+            const audio = document.createElement('audio');
+            audio.src = 'assets/audio/ivangrazianiluganoaddio.mp3';
+            audio.loop = true;
+            audio.volume = 0.15;
+            audio.autoplay = true;
+            audio.style.display = 'none';
+            document.body.appendChild(audio);
+            // Try to play (for browsers that block autoplay)
+            audio.play().catch(() => {});
+            this._galleryAudio = audio;
+        }
 
         this.currentYear = year;
         const galleryData = this.galleries[year];
