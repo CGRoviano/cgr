@@ -74,11 +74,7 @@ const GalleryModule = {
     bindModalEvents() {
         const modal = document.getElementById('gallery-modal');
         document.getElementById('gallery-close').addEventListener('click', () => this.closeModal());
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                this.closeModal();
-            }
-        });
+        // ESC disabilitato: nessun event listener per Escape
         modal.addEventListener('click', (e) => {
             if (e.target === modal) this.closeModal();
         });
