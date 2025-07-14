@@ -8,16 +8,27 @@ const GalleryModule = {
         console.log('Gallery Module: Initializing...');
         await this.loadGalleries();
         this.createModal();
-        
-        // Cerca i trigger della galleria dopo un breve ritardo per assicurarsi che la timeline sia renderizzata
-        setTimeout(() => this.bindTimelineEvents(), 500);
+        // Se siamo in una pagina gallery dedicata, apri la galleria giusta
+        const galleryMatch = window.location.pathname.match(/gallery\/(\d{4})gallery\.html$/);
+        if (galleryMatch && this.galleries) {
+            const year = galleryMatch[1];
+            // Attendi che il DOM sia pronto e apri la galleria
+            setTimeout(() => this.openGallery(year), 200);
+        } else {
+            // Cerca i trigger della galleria dopo un breve ritardo per assicurarsi che la timeline sia renderizzata
+            setTimeout(() => this.bindTimelineEvents(), 500);
+        }
     },
     
     async loadGalleries() {
         try {
-            console.log('Gallery Module: Loading galleries data from assets/json/gallery.json...');
-            // ASSICURATI CHE QUESTO PERCORSO SIA CORRETTO!
-            const response = await fetch('assets/json/gallery.json');
+            // Percorso dinamico: cerca gallery.json sia da /sections che da /gallery
+            let jsonPath = 'assets/json/gallery.json';
+            if (window.location.pathname.includes('/gallery/')) {
+                jsonPath = '../assets/json/gallery.json';
+            }
+            console.log('Gallery Module: Loading galleries data from', jsonPath);
+            const response = await fetch(jsonPath);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -64,7 +75,9 @@ const GalleryModule = {
         const modal = document.getElementById('gallery-modal');
         document.getElementById('gallery-close').addEventListener('click', () => this.closeModal());
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) this.closeModal();
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                this.closeModal();
+            }
         });
         modal.addEventListener('click', (e) => {
             if (e.target === modal) this.closeModal();
@@ -118,87 +131,73 @@ const GalleryModule = {
             this._galleryAudio = null;
         }
 
-        if (year === '2000') {
-            // Create and play audio for 2000 gallery
-            const audio = document.createElement('audio');
-            audio.src = 'assets/audio/rinoamanoamano.mp3';
-            audio.loop = true;
-            audio.volume = 0.15;
-            audio.autoplay = true;
-            audio.style.display = 'none';
-            document.body.appendChild(audio);
-            // Try to play (for browsers that block autoplay)
-            audio.play().catch(() => {});
-            this._galleryAudio = audio;
-        }
+        // Funzione per forzare l'autoplay con interazione utente se necessario
+        const playAudioWithFallback = (audio) => {
+            let started = false;
+            function startAudio() {
+                if (!started) {
+                    started = true;
+                    audio.play();
+                    const overlay = document.getElementById('gallery-audio-capture');
+                    if (overlay) overlay.remove();
+                    document.removeEventListener('click', startAudio);
+                    document.removeEventListener('keydown', startAudio);
+                    document.removeEventListener('touchstart', startAudio);
+                }
+            }
+            // Overlay invisibile SEMPRE per la pagina galleria dedicata
+            if (window.location.pathname.includes('/gallery/')) {
+                if (!document.getElementById('gallery-audio-capture')) {
+                    const overlay = document.createElement('div');
+                    overlay.id = 'gallery-audio-capture';
+                    overlay.style.position = 'fixed';
+                    overlay.style.top = 0;
+                    overlay.style.left = 0;
+                    overlay.style.width = '100vw';
+                    overlay.style.height = '100vh';
+                    overlay.style.background = 'transparent';
+                    overlay.style.zIndex = 9999;
+                    overlay.style.cursor = 'pointer';
+                    overlay.addEventListener('click', startAudio);
+                    overlay.addEventListener('keydown', startAudio);
+                    overlay.addEventListener('touchstart', startAudio);
+                    document.body.appendChild(overlay);
+                }
+                // Aggancia anche agli eventi globali
+                document.addEventListener('click', startAudio);
+                document.addEventListener('keydown', startAudio);
+                document.addEventListener('touchstart', startAudio);
+            }
+            audio.play().catch(() => {
+                // Se l'autoplay fallisce, la funzione startAudio è già agganciata
+            });
+        };
 
-        if (year === '2001') {
-            // Create and play audio for 2001 gallery
+        const audioFiles = {
+            '2000': 'rinoamanoamano.mp3',
+            '2001': 'thebeatleshelp.mp3',
+            '2002': 'faberhotelsupramonte.mp3',
+            '2003': 'pinkfloyheyyou.mp3',
+            '2004': 'bobmarleyjamming.mp3',
+            '2005': 'ivangrazianiluganoaddio.mp3',
+            '2006': 'thequeenfat.mp3',
+            '2007': 'theddorsstrange.mp3',
+            '2008': 'nomadiiovogliovivere.mp3',
+            '2009': 'battistiemozioni.mp3'
+        };
+        if (audioFiles[year]) {
             const audio = document.createElement('audio');
-            audio.src = 'assets/audio/thebeatleshelp.mp3';
+            let audioPath = 'assets/audio/' + audioFiles[year];
+            if (window.location.pathname.includes('/gallery/')) {
+                audioPath = '../assets/audio/' + audioFiles[year];
+            }
+            audio.src = audioPath;
             audio.loop = true;
             audio.volume = 0.15;
             audio.autoplay = true;
             audio.style.display = 'none';
             document.body.appendChild(audio);
-            // Try to play (for browsers that block autoplay)
-            audio.play().catch(() => {});
-            this._galleryAudio = audio;
-        }
-
-        if (year === '2002') {
-            // Create and play audio for 2002 gallery
-            const audio = document.createElement('audio');
-            audio.src = 'assets/audio/faberhotelsupramonte.mp3';
-            audio.loop = true;
-            audio.volume = 0.15;
-            audio.autoplay = true;
-            audio.style.display = 'none';
-            document.body.appendChild(audio);
-            // Try to play (for browsers that block autoplay)
-            audio.play().catch(() => {});
-            this._galleryAudio = audio;
-        }
-
-        if (year === '2003') {
-            // Create and play audio for 2003 gallery
-            const audio = document.createElement('audio');
-            audio.src = 'assets/audio/pinkfloyheyyou.mp3';
-            audio.loop = true;
-            audio.volume = 0.15;
-            audio.autoplay = true;
-            audio.style.display = 'none';
-            document.body.appendChild(audio);
-            // Try to play (for browsers that block autoplay)
-            audio.play().catch(() => {});
-            this._galleryAudio = audio;
-        }
-
-        if (year === '2004') {
-            // Create and play audio for 2004 gallery
-            const audio = document.createElement('audio');
-            audio.src = 'assets/audio/bobmarleyjamming.mp3';
-            audio.loop = true;
-            audio.volume = 0.15;
-            audio.autoplay = true;
-            audio.style.display = 'none';
-            document.body.appendChild(audio);
-            // Try to play (for browsers that block autoplay)
-            audio.play().catch(() => {});
-            this._galleryAudio = audio;
-        }
-
-        if (year === '2005') {
-            // Create and play audio for 2005 gallery
-            const audio = document.createElement('audio');
-            audio.src = 'assets/audio/ivangrazianiluganoaddio.mp3';
-            audio.loop = true;
-            audio.volume = 0.15;
-            audio.autoplay = true;
-            audio.style.display = 'none';
-            document.body.appendChild(audio);
-            // Try to play (for browsers that block autoplay)
-            audio.play().catch(() => {});
+            playAudioWithFallback(audio);
             this._galleryAudio = audio;
         }
 
@@ -322,6 +321,8 @@ const GalleryModule = {
     },
     
     closeModal() {
+        if (this._redirecting) return;
+        this._redirecting = true;
         const modal = document.getElementById('gallery-modal');
         modal.classList.remove('active');
         document.body.style.overflow = '';
@@ -339,6 +340,11 @@ const GalleryModule = {
             this.currentSwiper = null;
         }
         this.currentYear = null;
+
+        // Se siamo in una pagina gallery dedicata, torna a index.html alla sezione timeline
+        if (window.location.pathname.includes('/gallery/')) {
+            window.location.href = '../index.html#timeline';
+        }
     }
 };
 
