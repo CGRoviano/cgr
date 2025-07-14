@@ -27,6 +27,8 @@ const GalleryModule = {
             if (window.location.pathname.includes('/gallery/')) {
                 jsonPath = '../assets/json/gallery.json';
             }
+            // Forza il refresh del JSON ad ogni caricamento
+            jsonPath += '?v=' + Date.now();
             console.log('Gallery Module: Loading galleries data from', jsonPath);
             const response = await fetch(jsonPath);
             if (!response.ok) {
