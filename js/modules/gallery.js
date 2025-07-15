@@ -180,7 +180,7 @@ const GalleryModule = {
             '2005': 'ivangrazianiluganoaddio.mp3',
             '2006': 'thequeenfat.mp3',
             '2007': 'theddorsstrange.mp3',
-            '2008': 'nomadiiovogliovivere.mp3',
+            '2008': 'nomadidioemorto.mp3',
             '2009': 'battistiemozioni.mp3'
         };
         if (audioFiles[year]) {
