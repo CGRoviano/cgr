@@ -120,6 +120,11 @@ const GalleryModule = {
     openGallery(year) {
         if (!this.galleries[year] || !this.galleries[year].images.length) return;
 
+        // Salva l'anno corrente in localStorage per il redirect dopo la chiusura
+        try {
+            localStorage.setItem('lastGalleryYear', year);
+        } catch (e) {}
+
         // AUDIO AUTOPLAY LOGIC FOR 2000
         // Remove any previous gallery audio
         if (this._galleryAudio) {
@@ -319,6 +324,7 @@ const GalleryModule = {
     },
     
     closeModal() {
+        // Permetti sempre la chiusura, resetta _redirecting subito dopo
         if (this._redirecting) return;
         this._redirecting = true;
         const modal = document.getElementById('gallery-modal');
@@ -337,12 +343,24 @@ const GalleryModule = {
             this.currentSwiper.destroy(true, true);
             this.currentSwiper = null;
         }
+        // Salva l'anno della galleria appena chiusa
+        let lastYear = null;
+        try {
+            lastYear = localStorage.getItem('lastGalleryYear');
+        } catch (e) {}
         this.currentYear = null;
 
-        // Se siamo in una pagina gallery dedicata, torna a index.html alla sezione timeline
+        // Se siamo in una pagina gallery dedicata, torna a index.html alla sezione timeline-ANNO
         if (window.location.pathname.includes('/gallery/')) {
-            window.location.href = '../index.html#timeline';
+            let hash = '#timeline';
+            if (lastYear) {
+                hash = `#timeline-${lastYear}`;
+            }
+            window.location.href = '../index.html' + hash;
         }
+
+        // Reset _redirecting dopo breve delay per permettere nuove aperture/chiusure
+        setTimeout(() => { this._redirecting = false; }, 500);
     }
 };
 
