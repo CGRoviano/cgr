@@ -186,7 +186,12 @@ const GalleryModule = {
             '2006': 'thequeenfat.mp3',
             '2007': 'theddorsstrange.mp3',
             '2008': 'nomadidioemorto.mp3',
-            '2009': 'battistiemozioni.mp3'
+            '2009': 'battistiemozioni.mp3',
+            '2010': 'rinoeiocisto.mp3',
+            '2011': 'bruscoaabronz.mp3',
+            '2012': 'nirvanarapeme.mp3',
+            '2013': 'mjsmoothcriminal.mp3',
+            '2014': 'elvis.mp3'
         };
         if (audioFiles[year]) {
             const audio = document.createElement('audio');
@@ -196,7 +201,7 @@ const GalleryModule = {
             }
             audio.src = audioPath;
             audio.loop = true;
-            audio.volume = 0.15;
+            audio.volume = 0.05;
             audio.autoplay = true;
             audio.style.display = 'none';
             document.body.appendChild(audio);

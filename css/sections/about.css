@@ -94,7 +94,7 @@
 
 @media (max-width: 480px) {
     .about-text {
-        padding: var(--spacing-sm);
+        padding: var(--spacing-lg);
     }
 
     .about-text p {
