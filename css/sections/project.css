@@ -238,4 +238,12 @@
     .objective {
         padding: 1.2rem;
     }
+    .project-header p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+        max-width: 100%;
+    }
 }
