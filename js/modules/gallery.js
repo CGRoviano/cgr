@@ -191,7 +191,8 @@ const GalleryModule = {
             '2011': 'bruscoaabronz.mp3',
             '2012': 'nirvanarapeme.mp3',
             '2013': 'mjsmoothcriminal.mp3',
-            '2014': 'elvis.mp3'
+            '2014': 'elvis.mp3',
+            '2015': 'inncantinasulegambe.mp3'
         };
         if (audioFiles[year]) {
             const audio = document.createElement('audio');
