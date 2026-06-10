@@ -14,9 +14,6 @@ const GalleryModule = {
             const year = galleryMatch[1];
             // Attendi che il DOM sia pronto e apri la galleria
             setTimeout(() => this.openGallery(year), 200);
-        } else {
-            // Cerca i trigger della galleria dopo un breve ritardo per assicurarsi che la timeline sia renderizzata
-            setTimeout(() => this.bindTimelineEvents(), 500);
         }
     },
     
@@ -370,8 +367,15 @@ const GalleryModule = {
     }
 };
 
+let galleryInitPromise = null;
 document.addEventListener('DOMContentLoaded', () => {
-    GalleryModule.init();
+    galleryInitPromise = GalleryModule.init();
+});
+
+// Bind gallery triggers only after both the timeline HTML and the galleries JSON are ready
+document.addEventListener('timeline-loaded', async () => {
+    if (galleryInitPromise) await galleryInitPromise;
+    GalleryModule.bindTimelineEvents();
 });
 
 window.GalleryModule = GalleryModule;
