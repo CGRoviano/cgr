@@ -1,0 +1,16 @@
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

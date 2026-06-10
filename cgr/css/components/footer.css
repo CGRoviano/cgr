@@ -1,0 +1,298 @@
+/* Footer Styles */
+.site-footer {
+    background-color: #000000;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 106, 0, 0.829);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 1.5rem 0 0.5rem 0;
+}
+
+.footer-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+    opacity: 0.8;
+}
+
+.footer-link h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.footer-icon {
+    font-size: 1.2rem;
+}
+
+.funding-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-light);
+    opacity: 0.9;
+    font-size: 0.98em;
+}
+
+.funding-info img.regione-logo {
+    height: 54px;
+    width: auto;
+}
+
+.footer-powered-by {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 0;
+}
+
+.footer-powered-by .powered-by-text {
+    color: var(--text-light);
+    font-size: 1em;
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.footer-powered-by .footer-rovi-logo {
+    height: 32px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.footer-links-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.2rem 0 0.5rem 0;
+    flex-wrap: wrap;
+}
+
+.footer-association {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.98em;
+    margin: 0.8rem 0 0.5rem 0;
+    line-height: 1.5;
+}
+
+.footer-association a {
+    color: #FF6B00;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.footer-legal {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.95em;
+    color: var(--text-light);
+    opacity: 0.85;
+}
+
+.footer-legal-link {
+    color: #FF6B00;
+    text-decoration: underline;
+    margin: 0 0.2em;
+}
+
+.footer-legal-link:hover {
+    text-decoration: underline wavy;
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 0.2rem 0 0.1rem 0 !important;
+        border-top-width: 1px !important;
+    }
+    .footer-content,
+    .footer-grid {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: none !important;
+    }
+    .footer-col {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: none !important;
+    }
+    .footer-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.2em !important;
+        font-size: 1em !important;
+        margin: 0.1em 0 !important;
+        line-height: 1.2 !important;
+    }
+    .footer-link h3, .footer-link span {
+        font-size: 1em !important;
+    }
+        .funding-info, .footer-powered-by {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.2em !important;
+            font-size: 0.95em !important;
+            margin: 0.1em 0 0 0 !important;
+            line-height: 1.2 !important;
+            text-align: center !important;
+        }
+    .footer-logo img,
+    .footer-powered-by .footer-rovi-logo,
+    .funding-info img.regione-logo {
+        height: 24px !important;
+        max-width: 60px !important;
+    }
+    .footer-association {
+        font-size: 0.95em !important;
+        margin: 0.1em 0 0.1em 0 !important;
+        line-height: 1.2 !important;
+    }
+    .footer-legal {
+        font-size: 0.9em !important;
+        margin-top: 0.2em !important;
+        line-height: 1.2 !important;
+    }
+    .footer-legal-link {
+        font-size: 1em !important;
+    }
+    /* Debug: bordo rosso per vedere i blocchi */
+    /* .footer-col { border: 1px solid red !important; } */
+}
+@media (min-width: 601px) and (max-width: 900px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.2rem 0 0.5rem 0;
+    }
+    .footer-links-bottom {
+        flex-direction: column;
+        gap: 0.7rem;
+        margin: 1.2rem 0 0.5rem 0;
+    }
+    .footer-association {
+        font-size: 0.93em;
+        margin: 0.7rem 0 0.4rem 0;
+    }
+    .footer-legal {
+        font-size: 0.9em;
+        margin-top: 0.4rem;
+    }
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+    .footer-col {
+        align-items: center;
+        text-align: center;
+        min-width: unset;
+        gap: 0.3rem;
+        margin-bottom: 0.2rem;
+    }
+    .footer-col.footer-credits,
+    .footer-col.footer-identity,
+    .footer-col.footer-links {
+        align-items: center;
+        gap: 0.3rem;
+    }
+    .footer-link {
+        gap: 0.3rem;
+        font-size: 0.98em;
+    }
+    .funding-info {
+        gap: 6px;
+        font-size: 0.93em;
+    }
+    .footer-powered-by {
+        gap: 4px;
+        font-size: 0.93em;
+    }
+}
+
+/* Footer Grid Layout */
+.footer-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.7rem;
+}
+
+.footer-col {
+    flex: 1 1 220px;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
+
+.footer-col.footer-links {
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.footer-col.footer-credits {
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.footer-col.footer-identity {
+    align-items: flex-start;
+    gap: 0.3rem;
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+    }
+    .footer-col {
+        align-items: center;
+        text-align: center;
+        min-width: unset;
+    }
+    .footer-col.footer-credits {
+        align-items: center;
+    }
+    .footer-col.footer-identity {
+        align-items: center;
+    }
+}
